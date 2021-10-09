@@ -1,6 +1,6 @@
 /** @format */
 
-import { useD3 } from "../hooks/useD3";
+import { useD3 } from "../../hooks/useD3";
 import * as d3 from "d3";
 
 function BarChart({ data }) {

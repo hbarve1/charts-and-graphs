@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import RadialTidyChart from "../../components/RadialTidyChart";
+import RadialTidyChart from "../../components/d3/RadialTidyChart";
 
 const data = [];
 
