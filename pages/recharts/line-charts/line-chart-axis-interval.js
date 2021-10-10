@@ -9,8 +9,10 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
-  ResponsiveContainer,
 } from "recharts";
+
+import styles from "../../../styles/Home.module.css";
+
 
 const data = [
   {
@@ -58,26 +60,16 @@ const data = [
 ];
 
 export default class Example extends PureComponent {
-  static demoUrl = "https://codesandbox.io/s/simple-line-chart-kec3v";
+  static demoUrl =
+    "https://codesandbox.io/s/line-chart-of-different-axis-interval-oxw2p";
 
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
-        <LineChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
+      <div>
+        <LineChart width={200} height={100} data={data}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
+          <XAxis dataKey="name" interval="preserveEnd" />
+          <YAxis interval="preserveEnd" />
           <Legend />
           <Line
             type="monotone"
@@ -87,7 +79,49 @@ export default class Example extends PureComponent {
           />
           <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
         </LineChart>
-      </ResponsiveContainer>
+
+        <LineChart width={200} height={100} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" interval="preserveStart" />
+          <YAxis interval="preserveStart" />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        </LineChart>
+
+        <LineChart width={200} height={100} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" interval="preserveStartEnd" />
+          <YAxis interval="preserveStartEnd" />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        </LineChart>
+
+        <LineChart width={200} height={100} data={data}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" interval={0} angle={30} dx={20} />
+          <YAxis />
+          <Legend />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#8884d8"
+            activeDot={{ r: 8 }}
+          />
+          <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+        </LineChart>
+      </div>
     );
   }
 }

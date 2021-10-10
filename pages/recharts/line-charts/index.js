@@ -6,12 +6,7 @@ import Link from "next/link";
 
 import styles from "../../../styles/Home.module.css";
 
-function convertUrlToTitle(str) {
-  return str
-    .split("-")
-    .map((s) => (s.length > 0 ? s[0].toUpperCase() + s.slice(1) : s))
-    .join(" ");
-}
+import convertUrlToTitle from "../../../utils/convertUrlToTitle";
 
 export default function Home() {
   const BASE_URL = "/recharts/line-charts";
