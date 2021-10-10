@@ -14,7 +14,7 @@ This is a project to practice all the Graphs and charts for data visualization w
 - [ ] [d3fc](https://d3fc.io)
 - [ ] [Britecharts](https://britecharts.github.io/britecharts/)
 - [ ] [Victory](https://formidable.com/open-source/victory/)
-- [ ] [Recharts](https://recharts.org/en-US/)
+- [x] [Recharts](https://recharts.org/en-US/)
 - [ ] [Nivo](https://nivo.rocks/#/)
 - [ ] [VX](https://vx-demo.vercel.app)
 - [ ] [Britecharts React](https://britecharts.github.io/britecharts-react/)
