@@ -6,7 +6,13 @@ import Link from "next/link";
 
 import styles from "../styles/Home.module.css";
 
+import convertUrlToTitle from "../utils/convertUrlToTitle";
+
 export default function Home() {
+  const BASE_URL = "";
+
+  const list = ["d3", "recharts"];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -26,18 +32,14 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <Link href="/d3">
-            <a className={styles.card}>
-              <h2>D3.js &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-          </Link>{" "}
-          <Link href="/recharts">
-            <a className={styles.card}>
-              <h2>Rechart &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-          </Link>{" "}
+          {list.map((str) => (
+            <Link href={`${BASE_URL}/${str}`} key={str}>
+              <a className={styles.card}>
+                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+                {/* <p>Find in-depth information about Next.js features and API.</p> */}
+              </a>
+            </Link>
+          ))}
         </div>
       </main>
 

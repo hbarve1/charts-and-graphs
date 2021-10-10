@@ -5,8 +5,26 @@ import Image from "next/image";
 import Link from "next/link";
 
 import styles from "../../styles/Home.module.css";
+import convertUrlToTitle from "../../utils/convertUrlToTitle";
 
 export default function Home() {
+  const BASE_URL = "/recharts";
+
+  const list = [
+    "line-charts",
+    "area-charts",
+    "bar-charts",
+    "composed-charts",
+    "scatter-charts",
+    "pie-charts",
+    "radar-charts",
+    "radial-bar-charts",
+    "tree-map",
+    "tooltip",
+    "legend",
+    "responsive-container",
+  ];
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,18 +39,14 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          <Link href="/recharts/line-charts">
-            <a className={styles.card}>
-              <h2>Line Chart &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-          </Link>
-          <Link href="/radial-tidy-chart">
-            <a className={styles.card}>
-              <h2>Radial Tidy Chart &rarr;</h2>
-              <p>Find in-depth information about Next.js features and API.</p>
-            </a>
-          </Link>{" "}
+          {list.map((str) => (
+            <Link href={`${BASE_URL}/${str}`} key={str}>
+              <a className={styles.card}>
+                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+                {/* <p>Find in-depth information about Next.js features and API.</p> */}
+              </a>
+            </Link>
+          ))}
         </div>
       </main>
 
