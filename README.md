@@ -20,6 +20,11 @@ This is a project to practice all the Graphs and charts for data visualization w
 - [ ] [Britecharts React](https://britecharts.github.io/britecharts-react/)
 - [ ] [Datavis 2020 Course](https://www.youtube.com/watch?v=2LhoCfjm8R4)
 - [ ] Practice All d3.js library and functions
+- [ ] https://www.highcharts.com
+- [ ] https://reactflow.dev
+- [ ] https://www.fusioncharts.com
+- [ ] https://github.com/airbnb/visx
+- [ ] Convert code into TypeScript
 
 ## Getting Started
 
