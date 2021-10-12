@@ -58,7 +58,7 @@ const Echarts = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await fetch("/api/echarts/beijing-aqi");
+      const res = await fetch("/api/echarts/json/aqi-beijing");
       const json = await res.json();
 
       setOption({

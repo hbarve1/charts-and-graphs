@@ -10,7 +10,7 @@ const Echarts = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await fetch("/api/echarts/data-transform-fitler");
+      const res = await fetch("/api/echarts/json/life-expectancy-table");
 
       const json = await res.json();
       setOption({

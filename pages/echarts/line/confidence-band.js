@@ -57,7 +57,7 @@ const Echarts = () => {
 
   useEffect(() => {
     const get = async () => {
-      const res = await fetch("/api/echarts/confidence-band");
+      const res = await fetch("/api/echarts/json/confidence-band");
       const json = await res.json();
 
       var base = -json.reduce(function (min, val) {
