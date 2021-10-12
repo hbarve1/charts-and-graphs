@@ -3,9 +3,10 @@
 /**
  * Refernces:
  * https://github.com/hustcc/echarts-for-react
+ * https://stackoverflow.com/questions/59602145/how-use-forwarded-ref-and-internal-ref-simultaneously-in-react
  */
 
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, forwardRef } from "react";
 // import PropTypes from "prop-types";
 import { init, getInstanceByDom } from "echarts";
 
@@ -17,9 +18,8 @@ function ReactECharts({
   theme,
   events,
   zRenderEvents,
+  chartRef,
 }) {
-  const chartRef = useRef(null);
-
   useEffect(() => {
     // Initialize chart
     let chart;
@@ -67,7 +67,7 @@ function ReactECharts({
       const chart = getInstanceByDom(chartRef.current);
       chart.setOption(option, settings);
     }
-  }, [option, settings, theme]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
+  }, [chartRef, option, settings, theme]); // Whenever theme changes we need to add option and setting due to it being deleted in cleanup function
 
   useEffect(() => {
     // Update chart
@@ -76,16 +76,31 @@ function ReactECharts({
 
       loading === true ? chart.showLoading() : chart.hideLoading();
     }
-  }, [loading, theme]);
+  }, [chartRef, loading, theme]);
 
   return (
     <div ref={chartRef} style={{ width: "100%", height: "400px", ...style }} />
   );
 }
 
-ReactECharts.defaultProps = {
+// ReactECharts.defaultProps = {
+//   events: {},
+//   zRenderEvents: {},
+// };
+
+// eslint-disable-next-line react/display-name
+const ReactEChartsRef = forwardRef((props, ref) => {
+  const defaultRef = useRef(null);
+
+  return <ReactECharts chartRef={ref || defaultRef} {...props} />;
+});
+
+// eslint-disable-next-line react/display-name
+// const ReactEChartsRef = forwardRef(ReactECharts);
+
+ReactEChartsRef.defaultProps = {
   events: {},
   zRenderEvents: {},
 };
 
-export default ReactECharts;
+export default ReactEChartsRef;
