@@ -18,6 +18,7 @@ This is a project to practice all the Graphs and charts for data visualization w
 - [ ] [Nivo](https://nivo.rocks/#/)
 - [ ] [VX](https://vx-demo.vercel.app)
 - [ ] [Britecharts React](https://britecharts.github.io/britecharts-react/)
+- [ ] [Google Charts](https://developers.google.com/chart)
 - [ ] [Datavis 2020 Course](https://www.youtube.com/watch?v=2LhoCfjm8R4)
 - [ ] Practice All d3.js library and functions
 - [ ] https://www.highcharts.com
