@@ -27,6 +27,7 @@ This is a project to practice all the Graphs and charts for data visualization w
 - [ ] https://github.com/airbnb/visx
 - [ ] Convert code into TypeScript
 - [ ] https://visjs.org
+- [ ] https://www.amcharts.com
 
 ## Getting Started
 
