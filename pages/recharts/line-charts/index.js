@@ -12,21 +12,21 @@ export default function Home() {
   const BASE_URL = "/recharts/line-charts";
 
   const list = [
-    "simple-line-chart",
-    "tiny-line-chart",
-    "dashed-line-chart",
-    "vertical-line-chart",
-    "biaxial-line-chart",
-    "vertical-line-chart-with-specified-domain",
-    "line-chart-connect-nulls",
-    "line-chart-with-xaxis-pading",
-    "line-chart-with-reference-lines",
-    "customized-dot-line-chart",
-    "customized-label-line-chart",
-    "synchronised-line-chart",
-    "highlinght-and-zoom-line-chart",
-    "line-chart-has-multi-series",
-    "line-chart-axis-interval",
+    {title: "simple-line-chart", value: 0},
+    {title: "tiny-line-chart", value: 0},
+    {title: "dashed-line-chart", value: 0},
+    {title: "vertical-line-chart", value: 0},
+    {title: "biaxial-line-chart", value: 0},
+    {title: "vertical-line-chart-with-specified-domain", value: 0},
+    {title: "line-chart-connect-nulls", value: 0},
+    {title: "line-chart-with-xaxis-pading", value: 1},
+    {title: "line-chart-with-reference-lines", value: 0},
+    {title: "customized-dot-line-chart", value: 0},
+    {title: "customized-label-line-chart", value: 0},
+    {title: "synchronised-line-chart", value: 0},
+    {title: "highlinght-and-zoom-line-chart", value: 0},
+    {title: "line-chart-has-multi-series", value: 0},
+    {title: "line-chart-axis-interval", value: 0},
   ];
 
   return (
@@ -43,10 +43,12 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {list.map((str) => (
-            <Link href={`${BASE_URL}/${str}`} key={str}>
-              <a className={styles.card}>
-                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+          {list.map(({title, value}) => (
+            <Link href={`${BASE_URL}/${title}`} key={title}>
+              <a className={styles.card} style={{
+                borderBlockColor: value > 0 ? "green" : "red",
+              }}>
+                <h2>{convertUrlToTitle(title)} &rarr;</h2>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>
