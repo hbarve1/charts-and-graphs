@@ -65,8 +65,8 @@ export const database = {
       { title: "simple-radar-chart", value: 1 },
       { title: "specified-domain-radar-chart", value: 1 },
     ],
-    "radial-bar-charts": [{ value: "simple-radial-bar-chart", value: 1 }],
-    "resposive-container": [
+    "radial-bar-charts": [{ title: "simple-radial-bar-chart", value: 1 }],
+    "responsive-container": [
       { title: "area-responsive-container", value: 1 },
       { title: "composed-responsive-container", value: 1 },
       { title: "pie-responsive-container", value: 1 },
@@ -80,7 +80,7 @@ export const database = {
       { title: "multiple-yaxis-scatter-chart", value: 1 },
       { title: "scatter-chart-with-cell", value: 1 },
     ],
-    "tooltip": [{ value: "custom-content-of-tooltip", value: 1 }],
+    "tooltip": [{ title: "custom-content-of-tooltip", value: 1 }],
     "tree-map": [
       { title: "simple-tree-map", value: 1 },
       { title: "custom-content-tree-map", value: 1 },
