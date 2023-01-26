@@ -3,15 +3,16 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
+import { database } from "../../../data/database";
 import styles from "../../../styles/Home.module.css";
 
 import convertUrlToTitle from "../../../utils/convertUrlToTitle";
 
 export default function Home() {
   const BASE_URL = "/recharts/radar-charts";
+  const list = [...database.recharts["radar-charts"]];
 
-  const list = ["simple-radar-chart", "specified-domain-radar-chart"];
+  // const list = ["simple-radar-chart", "specified-domain-radar-chart"];
 
   return (
     <div className={styles.container}>
@@ -27,10 +28,16 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {list.map((str) => (
-            <Link href={`${BASE_URL}/${str}`} key={str}>
-              <a className={styles.card}>
-                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+          {list.map(({ title, value }) => (
+            <Link href={`${BASE_URL}/${title}`} key={title}>
+              <a
+                className={styles.card}
+                style={{
+                  borderColor: value > 0 ? "green" : "red",
+                  borderWidth: 2,
+                }}
+              >
+                <h2>{convertUrlToTitle(title)} &rarr;</h2>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>

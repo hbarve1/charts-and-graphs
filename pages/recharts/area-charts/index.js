@@ -7,20 +7,22 @@ import Link from "next/link";
 import styles from "../../../styles/Home.module.css";
 
 import convertUrlToTitle from "../../../utils/convertUrlToTitle";
+import { database } from "../../../data/database";
 
 export default function Home() {
   const BASE_URL = "/recharts/area-charts";
 
-  const list = [
-    "simple-area-chart",
-    "stacked-area-chart",
-    "tiny-area-chart",
-    "percent-area-chart",
-    "cardinal-area-chart",
-    "area-chart-connect-nulls",
-    "synchronized-area-chart",
-    "area-chart-fill-by-value",
-  ];
+  const list=[...database.recharts["area-charts"]]
+  // const list = [
+  //   "simple-area-chart",
+  //   "stacked-area-chart",
+  //   "tiny-area-chart",
+  //   "percent-area-chart",
+  //   "cardinal-area-chart",
+  //   "area-chart-connect-nulls",
+  //   "synchronized-area-chart",
+  //   "area-chart-fill-by-value",
+  // ];
 
   return (
     <div className={styles.container}>
@@ -36,10 +38,14 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {list.map((str) => (
-            <Link href={`${BASE_URL}/${str}`} key={str}>
-              <a className={styles.card}>
-                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+          {list.map(({title,value}) => (
+            <Link href={`${BASE_URL}/${title}`} key={title}>
+              <a className={styles.card}
+              style={{
+                borderColor: value > 0 ? "green" : "red",
+                borderWidth:2
+              }}>
+                <h2>{convertUrlToTitle(title)} &rarr;</h2>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>

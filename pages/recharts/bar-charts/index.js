@@ -3,6 +3,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { database } from "../../../data/database";
 
 import styles from "../../../styles/Home.module.css";
 
@@ -11,22 +12,23 @@ import convertUrlToTitle from "../../../utils/convertUrlToTitle";
 export default function Home() {
   const BASE_URL = "/recharts/bar-charts";
 
-  const list = [
-    "simple-bar-chart",
-    "tiny-bar-chart",
-    "stacked-bar-chart",
-    "mix-bar-chart",
-    "custom-shape-bar-chart",
-    "positive-and-negative-bar-chart",
-    "brush-bar-chart",
-    "bar-chart-with-customized-event",
-    "bar-chart-with-min-height",
-    "bar-chart-stacked-by-sign",
-    "biaxial-bar-chart",
-    "bar-chart-has-background",
-    "bar-chart-with-multi-xaxis",
-    "bar-chart-no-padding",
-  ];
+  const list=[...database.recharts["bar-charts"]]
+  // const list = [
+  //   "simple-bar-chart",
+  //   "tiny-bar-chart",
+  //   "stacked-bar-chart",
+  //   "mix-bar-chart",
+  //   "custom-shape-bar-chart",
+  //   "positive-and-negative-bar-chart",
+  //   "brush-bar-chart",
+  //   "bar-chart-with-customized-event",
+  //   "bar-chart-with-min-height",
+  //   "bar-chart-stacked-by-sign",
+  //   "biaxial-bar-chart",
+  //   "bar-chart-has-background",
+  //   "bar-chart-with-multi-xaxis",
+  //   "bar-chart-no-padding",
+  // ];
 
   return (
     <div className={styles.container}>
@@ -42,10 +44,13 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {list.map((str) => (
-            <Link href={`${BASE_URL}/${str}`} key={str}>
-              <a className={styles.card}>
-                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+          {list.map(({title,value}) => (
+            <Link href={`${BASE_URL}/${title}`} key={title}>
+              <a className={styles.card}style={{
+                borderColor: value > 0 ? "green" : "red",
+                borderWidth:2
+              }}>
+                <h2>{convertUrlToTitle(title)} &rarr;</h2>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>

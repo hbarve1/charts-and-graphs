@@ -3,7 +3,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-
+import { database } from "../../../data/database";
 import styles from "../../../styles/Home.module.css";
 
 import convertUrlToTitle from "../../../utils/convertUrlToTitle";
@@ -11,23 +11,24 @@ import convertUrlToTitle from "../../../utils/convertUrlToTitle";
 export default function Home() {
   const BASE_URL = "/recharts/line-charts";
 
-  const list = [
-    { title: "simple-line-chart", value: 0 },
-    { title: "tiny-line-chart", value: 0 },
-    { title: "dashed-line-chart", value: 0 },
-    { title: "vertical-line-chart", value: 0 },
-    { title: "biaxial-line-chart", value: 0 },
-    { title: "vertical-line-chart-with-specified-domain", value: 0 },
-    { title: "line-chart-connect-nulls", value: 0 },
-    { title: "line-chart-with-xaxis-pading", value: 1 },
-    { title: "line-chart-with-reference-lines", value: 0 },
-    { title: "customized-dot-line-chart", value: 0 },
-    { title: "customized-label-line-chart", value: 0 },
-    { title: "synchronised-line-chart", value: 0 },
-    { title: "highlinght-and-zoom-line-chart", value: 0 },
-    { title: "line-chart-has-multi-series", value: 0 },
-    { title: "line-chart-axis-interval", value: 0 },
-  ];
+  const list=[...database.recharts["line-charts"]]
+  // const list = [
+  //   { title: "simple-line-chart", value: 1 },
+  //   { title: "tiny-line-chart", value: 1 },
+  //   { title: "dashed-line-chart", value: 1 },
+  //   { title: "vertical-line-chart", value: 1 },
+  //   { title: "biaxial-line-chart", value: 1 },
+  //   { title: "vertical-line-chart-with-specified-domain", value: 1 },
+  //   { title: "line-chart-connect-nulls", value: 1 },
+  //   { title: "line-chart-with-xaxis-pading", value: 1 },
+  //   { title: "line-chart-with-reference-lines", value: 1 },
+  //   { title: "customized-dot-line-chart", value: 1 },
+  //   { title: "customized-label-line-chart", value: 1 },
+  //   { title: "synchronised-line-chart", value: 1 },
+  //   { title: "highlinght-and-zoom-line-chart", value: 1 },
+  //   { title: "line-chart-has-multi-series", value: 1 },
+  //   { title: "line-chart-axis-interval", value: 1 },
+  // ];
 
   return (
     <div className={styles.container}>
@@ -48,10 +49,11 @@ export default function Home() {
               <a
                 className={styles.card}
                 style={{
-                  borderBlockColor: value > 0 ? "green" : "red",
+                  borderColor: value > 0 ? "green" : "red",
+                  borderWidth:2
                 }}
               >
-                <h2>{convertUrlToTitle(title)} &rarr;</h2>
+                <h1>{convertUrlToTitle(title)} &rarr;</h1>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>
@@ -67,7 +69,7 @@ export default function Home() {
         >
           Powered by{" "}
           <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
+            <Image src="/vercel.svg" alt="Vercel Logo" width={71} height={16} />
           </span>
         </a>
       </footer>
