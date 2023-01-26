@@ -4,9 +4,9 @@ import PageLayout from "../components/pageLayout";
 
 function ChartsAndGraphs() {
   const list = [
-    "d3",
     "recharts",
     "echarts",
+    "d3",
     "plottable",
     "billboard",
     "d3fc",
