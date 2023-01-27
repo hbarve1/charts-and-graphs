@@ -8,11 +8,12 @@ import styles from "../../../styles/Home.module.css";
 
 import convertUrlToTitle from "../../../utils/convertUrlToTitle";
 import { database } from "../../../data/database";
+import CardContainer from "../../../components/cardContainer";
 
 export default function Home() {
   const BASE_URL = "/recharts/area-charts";
 
-  const list=[...database.recharts["area-charts"]]
+  const list = [...database.recharts["area-charts"]];
   // const list = [
   //   "simple-area-chart",
   //   "stacked-area-chart",
@@ -38,17 +39,20 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {list.map(({title,value}) => (
-            <Link href={`${BASE_URL}/${title}`} key={title}>
-              <a className={styles.card}
-              style={{
-                borderColor: value > 0 ? "green" : "red",
-                borderWidth:2
-              }}>
-                <h2>{convertUrlToTitle(title)} &rarr;</h2>
-                {/* <p>Find in-depth information about Next.js features and API.</p> */}
-              </a>
-            </Link>
+          {list.map(({ title, value }) => (
+            <>
+              <CardContainer BASE_URL={BASE_URL} title={title} value={value}/>
+            </>
+            // <Link href={`${BASE_URL}/${title}`} key={title}>
+            //   <a className={styles.card}
+            //   style={{
+            //     borderColor: value > 0 ? "green" : "red",
+            //     borderWidth:2
+            //   }}>
+            //     <h2>{convertUrlToTitle(title)} &rarr;</h2>
+            //     {/* <p>Find in-depth information about Next.js features and API.</p> */}
+            //   </a>
+            // </Link>
           ))}
         </div>
       </main>
