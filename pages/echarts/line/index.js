@@ -6,47 +6,49 @@ import Link from "next/link";
 
 import styles from "../../../styles/Home.module.css";
 import convertUrlToTitle from "../../../utils/convertUrlToTitle";
+import { database } from "../../../data/database";
 
 export default function Home() {
   const BASE_URL = "/echarts/line";
+  const list = [...database.echarts["line"]];
 
-  const list = [
-    "basic-line-chart",
-    "smoothed-line-chart",
-    "basic-area-chart",
-    "stacked-line-chart",
-    "stacked-area-chart",
-    "gradient-stacked-area-chart",
-    "temperature-change-in-coming-week",
-    "area-pieces",
-    "data-transform-fitler",
-    "line-gradient",
-    "distribution-of-electricity",
-    "large-scale-area-chart",
-    "confidence-band",
-    "rainfall-vs-evaporation",
-    "beijing-aqi",
-    "multiple-x-axes",
-    "rainfall",
-    "area-chart-with-time-axis",
-    "dynamic-data-time-axis",
-    "function-plot",
-    "line-race",
-    "line-with-marklines",
-    "line-style-and-item-style",
-    "line-chart-in-cartesian-coordinate-system",
-    "log-axis",
-    "step-line",
-    "line-easing-visualizing",
-    "line-y-category",
-    "custom-graphic-component",
-    "click-to-add-points",
-    "try-dragging-these-points",
-    "two-value-axes-in-polar",
-    "two-value-axes-in-polar-2",
-    "tooltip-and-datazoom-on-mobile",
-    "share-dataset",
-  ];
+  // const list = [
+  //   "basic-line-chart",
+  //   "smoothed-line-chart",
+  //   "basic-area-chart",
+  //   "stacked-line-chart",
+  //   "stacked-area-chart",
+  //   "gradient-stacked-area-chart",
+  //   "temperature-change-in-coming-week",
+  //   "area-pieces",
+  //   "data-transform-fitler",
+  //   "line-gradient",
+  //   "dititleibution-of-electricity",
+  //   "large-scale-area-chart",
+  //   "confidence-band",
+  //   "rainfall-vs-evaporation",
+  //   "beijing-aqi",
+  //   "multiple-x-axes",
+  //   "rainfall",
+  //   "area-chart-with-time-axis",
+  //   "dynamic-data-time-axis",
+  //   "function-plot",
+  //   "line-race",
+  //   "line-with-marklines",
+  //   "line-style-and-item-style",
+  //   "line-chart-in-cartesian-coordinate-system",
+  //   "log-axis",
+  //   "step-line",
+  //   "line-easing-visualizing",
+  //   "line-y-category",
+  //   "custom-graphic-component",
+  //   "click-to-add-points",
+  //   "try-dragging-these-points",
+  //   "two-value-axes-in-polar",
+  //   "two-value-axes-in-polar-2",
+  //   "tooltip-and-datazoom-on-mobile",
+  //   "share-dataset",
+  // ];
 
   return (
     <div className={styles.container}>
@@ -62,10 +64,16 @@ export default function Home() {
         </h1>
 
         <div className={styles.grid}>
-          {list.map((str) => (
-            <Link href={`${BASE_URL}/${str}`} key={str}>
-              <a className={styles.card}>
-                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+          {list.map(({ title, value }) => (
+            <Link href={`${BASE_URL}/${title}`} key={title}>
+              <a
+                className={styles.card}
+                style={{
+                  borderColor: value > 0 ? "green" : "red",
+                  borderWidth: 2,
+                }}
+              >
+                <h2>{convertUrlToTitle(title)} &rarr;</h2>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>
