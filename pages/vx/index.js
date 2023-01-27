@@ -3,7 +3,7 @@
 import PageLayout from "../../components/pageLayout";
 
 function VX() {
-  const list = [];
+  const list = [{title:""}];
 
   return (
     <PageLayout

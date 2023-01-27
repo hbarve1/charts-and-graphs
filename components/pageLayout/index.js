@@ -21,10 +21,16 @@ function PageLayout({ title, description, heading, baseUrl, list }) {
         <h1 className={styles.title}>{heading}</h1>
 
         <div className={styles.grid}>
-          {list.map((str) => (
-            <Link href={`${baseUrl}/${str}`} key={str}>
-              <a className={styles.card}>
-                <h2>{convertUrlToTitle(str)} &rarr;</h2>
+          {list.map(({ title ,value}) => (
+            <Link href={`${baseUrl}/${title}`} key={title}>
+              <a
+                className={styles.card}
+                style={{
+                  borderColor: value > 0 ? "green" : "red",
+                  borderWidth: 2,
+                }}
+              >
+                <h2>{convertUrlToTitle(title)} &rarr;</h2>
                 {/* <p>Find in-depth information about Next.js features and API.</p> */}
               </a>
             </Link>

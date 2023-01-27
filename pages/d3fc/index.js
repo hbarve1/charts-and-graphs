@@ -3,7 +3,7 @@
 import PageLayout from "../../components/pageLayout";
 
 function D3fc() {
-  const list = [];
+  const list = [{title:"",value:0}];
 
   return (
     <PageLayout

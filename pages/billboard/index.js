@@ -3,7 +3,7 @@
 import PageLayout from "../../components/pageLayout";
 
 function Billboard() {
-  const list = [];
+  const list = [{title:"",value:0}];
 
   return (
     <PageLayout

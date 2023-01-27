@@ -4,18 +4,18 @@ import PageLayout from "../../components/pageLayout";
 
 function Recharts() {
   const list = [
-    "line-charts",
-    "area-charts",
-    "bar-charts",
-    "composed-charts",
-    "scatter-charts",
-    "pie-charts",
-    "radar-charts",
-    "radial-bar-charts",
-    "tree-map",
-    "tooltip",
-    "legend",
-    "responsive-container",
+    { title: "line-charts", value: 1 },
+    { title: "area-charts", value: 1 },
+    { title: "bar-charts", value: 1 },
+    { title: "composed-charts", value: 1 },
+    { title: "scatter-charts", value: 1 },
+    { title: "pie-charts", value: 1 },
+    { title: "radar-charts", value: 1 },
+    { title: "radial-bar-charts", value: 1 },
+    { title: "tree-map", value: 1 },
+    { title: "tooltip", value: 1 },
+    { title: "legend", value: 1 },
+    { title: "responsive-container", value: 1 },
   ];
 
   return (
